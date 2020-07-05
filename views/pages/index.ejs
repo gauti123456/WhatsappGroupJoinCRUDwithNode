@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Whatsapp Groups Join</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h1 class="text-center">Whatsapp Groups Join</h1>
+      <br />
+      <a href="/addgroup" class="btn btn-block btn-danger">
+        Add New Group
+      </a>
+      <br />
+      <% if (records.length > 0){%>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Link</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let record of records){ %>
+          <tr>
+            <td>
+              <%= record.name %>
+            </td>
+            <td>
+              <a
+                class="well well-lg text-center"
+                target="_blank"
+                href="<%= record.link %>"
+                ><%= record.link %></a
+              >
+            </td>
+            <td>
+              <a href="/<%=record._id%>">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              </a>
+            </td>
+            <td>
+              <a href="/delete/<%=record._id%>">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </td>
+          </tr>
+
+          <% } %> <%}%>
+        </tbody>
+      </table>
+      
+
+      
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</html>
